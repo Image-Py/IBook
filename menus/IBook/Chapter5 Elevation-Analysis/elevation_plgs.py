@@ -10,9 +10,9 @@ class Ridge(Filter):
     note = ['8-bit', 'not_slice', 'auto_snap', 'not_channel', 'preview']
     
     para = {'sigma':1.0, 'thr':0, 'ud':True}
-    view = [(float, (0,5), 1, 'sigma', 'sigma', 'pix'),
-            ('slide', (0,255), 'Low', 'thr', ''),
-            (bool, 'ascend', 'ud'),]
+    view = [(float, 'sigma', (0,5), 1, 'sigma', 'pix'),
+            ('slide', '', (0,255),1, 'thr'),
+            (bool,  'ud','ascend'),]
 
     def load(self, ips):
         self.buflut = ips.lut
@@ -48,9 +48,9 @@ class Watershed(Filter):
     note = ['8-bit', 'not_slice', 'auto_snap', 'not_channel', 'preview']
     
     para = {'sigma':1.0, 'thr':0, 'ud':True}
-    view = [(float, (0,5), 1, 'sigma', 'sigma', 'pix'),
-            ('slide', (0,255), 'Low', 'thr', ''),
-            (bool, 'ascend', 'ud'),]
+    view = [(float, 'sigma',(0,5), 1, 'sigma',  'pix'),
+            ('slide', '', (0,255),1, 'thr'),
+            (bool, 'ud', 'ascend'),]
 
     def load(self, ips):
         self.buflut = ips.lut
