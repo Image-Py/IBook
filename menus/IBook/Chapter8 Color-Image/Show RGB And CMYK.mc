@@ -1,0 +1,2 @@
+rgb>None
+cmyk>None
