@@ -23,6 +23,7 @@ datas = ['Angkor.jpg','qrcode.png','street.jpg','road.jpg','house.jpg',
 'saltpepper.jpg','dem.jpg', 'honeycomb.jpg', 'necklace.jpg','universe.jpg',
 'towel-far.jpg','towel-near.jpg','trafficsign.jpg','bee.png','insect.png',
 'game.jpg','gear.png','block.png','distance.png','points.png', 'qin.png', 
-'img.png','pointline.png','marble.png','cell.jpg']
+'img.png','pointline.png','marble.png','cell.jpg','rust.jpg', 'rose.jpg',
+'roses.jpg']
 
 plgs = [Data(i) for i in datas]
