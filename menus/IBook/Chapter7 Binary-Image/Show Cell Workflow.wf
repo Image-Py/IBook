@@ -1,0 +1,46 @@
+Cell Analysis Workflow
+======================
+## Open Image
+1. cell
+open the demo image, or your image.
+## Make Mask
+1. Duplicate
+duplicate the original image, rename it cell-gray, if multi slices, check the stack.
+2. 8-bit
+trans to 8-bit gray.
+3. Duplicate
+duplicate the gray image, rename it cell-msk, if multi slices, check the stack.
+4. Threshold
+threshold the image, here setting low threshold 193 is OK.
+## Repair Mask
+1. Fill Holes
+fill holes.
+2. Geometry Filter
+filter the small fragment, the region pass the filter will be set front, else back, here setting area 1100 is ok.
+3. Binary Opening
+smooth the edge with 3x3 binary opening.
+## Segment
+1. Binary Watershed
+use binary watershed to segment the connected cells.
+## Region Analysis And Find Connected
+1. Geometry Analysis
+analysis region properties, here check the cov.
+2. Geometry Filter
+filter the region with properties, here we use e>1.5 to find the connected pair. use 8-connect or ignore the segment line.
+## Intensity Analysis And Find Granules
+1. Duplicate
+duplicate the image, rename it cell-granule, if multi slices, check the stack.
+2. Intensity Analysis
+select the cell-gray as intensity image, then check indecates we need.
+3. Intensity Filter
+filter region by intensity properties, here we use std>30 to find the cells with granules.
+## Properties Statistic
+1. Table Statistic
+active the region properties table, select columns we need by mouse, statistic the region properties.
+2. Table Statistic
+active the intensity properties table, select columns we need by mouse statistic the intensity properties.
+## Chart And Report
+1. Scatter Chart
+set the XY data columns and others, here we use perimeter as radius, use area as color, and use a red hot lut.
+2. Show Cell Report
+generate report from an excel template, here we need set the image and table to specific cell grid.
