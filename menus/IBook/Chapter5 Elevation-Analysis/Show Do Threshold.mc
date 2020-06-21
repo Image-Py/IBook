@@ -1,7 +1,7 @@
 dem>None
 dem>None
-Threshold>{'thr1': 0, 'thr2': 3}
+Threshold>{'thre_lh':(0,3)}
 dem>None
-Threshold>{'thr1': 0, 'thr2': 87}
+Threshold>{'thre_lh':(0,87)}
 dem>None
-Threshold>{'thr1': 0, 'thr2': 148}
+Threshold>{'thre_lh':(0,148)}

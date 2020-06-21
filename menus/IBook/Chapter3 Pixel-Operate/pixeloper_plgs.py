@@ -1,6 +1,6 @@
 from imagepy.core.engine import Free
 import numpy as np
-from imagepy import IPy
+# from imagepy import IPy
 import wx
 
 import matplotlib
@@ -31,9 +31,9 @@ class AddMultiply(Free):
 		ori.T[:], add.T[:], mul.T[:] = ys, ys+100, ys*2
 
 		#area = (area-5) * 8
-		IPy.show_img([np.hstack(ori)], 'Orignal Line')
-		IPy.show_img([np.hstack(add)], 'Add 100')
-		IPy.show_img([np.hstack(mul)], 'Multiply 2')
+		self.app.show_img([np.hstack(ori)], 'Orignal Line')
+		self.app.show_img([np.hstack(add)], 'Add 100')
+		self.app.show_img([np.hstack(mul)], 'Multiply 2')
 		
 class Extend(Free):
 	title = 'Extend Full'
@@ -61,7 +61,7 @@ class Extend(Free):
 		ori.T[:] = np.round(data * 2.931 - 87.931)
 
 		#area = (area-5) * 8
-		IPy.show_img([np.hstack(ori)], 'Extend')
+		self.app.show_img([np.hstack(ori)], 'Extend')
 
 class Surface(Free):
 	title = '3D Surface'
@@ -76,7 +76,7 @@ class Surface(Free):
 		plt.show()
 
 		#area = (area-5) * 8
-		IPy.show_img([(Z+80).astype(np.uint8)], '3D Surface')
+		self.app.show_img([(Z+80).astype(np.uint8)], '3D Surface')
 
 class Gamma(Free):
 	title = 'Gamma Curve'

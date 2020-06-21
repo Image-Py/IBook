@@ -1,9 +1,11 @@
 from imagepy.core.engine import Free
-from imagepy.core import myvi
-from imagepy import IPy
+# from imagepy.core import myvi
+# from imagepy import IPy
 import numpy as np
 from skimage.color import hsv2rgb
-
+from sciapp.util import surfutil
+from sciapp.object import Surface
+from sciwx.mesh import Canvas3DFrame
 class RGBCube(Free):
 	title = 'Show RGB Cube'
 	asyn = False
@@ -12,28 +14,33 @@ class RGBCube(Free):
 	view = [(int, 'n', (1,8), 0, 'slices', '')]
 
 	def run(self, para=None):
+		cnf = Canvas3DFrame(None)
+
 		n = para['n'] + 1
 		xs = [np.linspace(0,1,n)]*n**2
 		ys = list(np.arange(n**3).reshape((-1, n))//n%n/(n-1))
 		zs = list(np.arange(n**3).reshape((-1, n))//n**2/(n-1))
 		cs = [np.array((x,y,z)).T for x,y,z in zip(xs,ys,zs)]
 		# cs[:] = myvi.util.auto_lookup(vts[:,2], myvi.util.linear_color('jet'))/255
-		vts, fs, ns, cs = myvi.build_lines(xs, ys, zs, cs)
-		manager = myvi.Manager()
-		surf = manager.add_surf('X', vts, fs, ns, cs)
-		surf.mode, surf.width = 'grid', 2
+		vts, fs, ns, cs = surfutil.build_lines(xs, ys, zs, cs)
+		X = Surface(vts, fs, ns, cs)
+		X.mode, X.width = 'grid', 2
+		cnf.add_surf('X', X)
 
 		cs = [np.array((x,y,z)).T for x,y,z in zip(ys,xs,zs)]
-		vts, fs, ns, cs = myvi.build_lines(ys, xs, zs, cs)
-		surf = manager.add_surf('Y', vts, fs, ns, cs)
-		surf.mode, surf.width = 'grid', 2
+		vts, fs, ns, cs = surfutil.build_lines(ys, xs, zs, cs)
+		Y = Surface(vts, fs, ns, cs)
+		Y.mode, Y.width = 'grid', 2
+		cnf.add_surf('Y', Y)
+
 
 		cs = [np.array((x,y,z)).T for x,y,z in zip(zs,ys,xs)]
-		vts, fs, ns, cs = myvi.build_lines(zs, ys, xs, cs)
-		surf = manager.add_surf('Z', vts, fs, ns, cs)
-		surf.mode, surf.width = 'grid', 2
+		vts, fs, ns, cs = surfutil.build_lines(zs, ys, xs, cs)
+		Z = Surface(vts, fs, ns, cs)
+		Z.mode, Z.width = 'grid', 2
+		cnf.add_surf('Z', Z)
+		cnf.Show()
 
-		myvi.Frame3D(IPy.curapp, 'RGB Cube', manager).Show()
 
 class HSVPyramid(Free):
 	title = 'Show HSV Pyramid'
@@ -65,11 +72,14 @@ class HSVPyramid(Free):
 		# cs[:] = myvi.util.auto_lookup(vts[:,2], myvi.util.linear_color('jet'))/255
 		xs.append([0,0]); ys.append([0,0]); zs.append([1,-1])
 		cs.append([(1,1,1),(0,0,0)])
-		vts, fs, ns, cs = myvi.build_lines(xs, ys, zs, cs)
-		manager = myvi.Manager()
-		surf = manager.add_surf('X', vts, fs, ns, cs)
-		surf.mode, surf.width = 'grid', 2
 
-		myvi.Frame3D(IPy.curapp, 'HSV Pyramid', manager).Show()
+		cnf = Canvas3DFrame(None)
+		vts, fs, ns, cs = surfutil.build_lines(xs, ys, zs, cs)
+		X = Surface(vts, fs, ns, cs)
+		cnf.add_surf('X', X)
+
+		X.mode, X.width = 'grid', 2
+
+		cnf.Show()
 
 plgs = [RGBCube, HSVPyramid]

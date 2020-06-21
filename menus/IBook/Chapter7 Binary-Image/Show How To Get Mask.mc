@@ -2,7 +2,7 @@ marble>None
 Duplicate>{'name': 'step1-gray', 'stack': True}
 8-bit>None
 Duplicate>{'name': 'step2-threshold', 'stack': True}
-Threshold>{'thr1': 0, 'thr2': 225}
+Threshold>{'thre_lh':(0,225)}
 Duplicate>{'name': 'step3-invert-fill', 'stack': True}
 Invert>None
 Fill Holes>None

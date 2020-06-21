@@ -1,6 +1,6 @@
 from imagepy.core.engine import Free
 import numpy as np
-from imagepy import IPy
+# from imagepy import IPy
 import wx
 
 import matplotlib
@@ -32,5 +32,5 @@ class Plugin(Free):
 		temp = np.array([10,12,16,22,26,28,30,30,25,21,16,11])
 		area.T[:] = temp
 		area = (area-5) * 8
-		IPy.show_img([np.hstack(area)], 'Chengdu Temperature')
+		self.app.show_img([np.hstack(area)], 'Chengdu Temperature')
 		

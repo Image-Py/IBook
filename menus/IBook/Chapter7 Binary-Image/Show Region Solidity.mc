@@ -4,5 +4,4 @@ Geometry Analysis>{'con': '8-connect', 'center': False, 'area': False, 'l': Fals
 Duplicate>{'name': 'insect-convex', 'stack': True}
 Binary ConvexHull>None
 Binary Outline>None
-Image Calculator>{'img1': 'insect', 'op': 'max', 'img2': 'insect-convex'}
-Kill Image>{'name': 'insect-convex'}
+Image Calculator>{'img': 'insect', 'op': 'max'}

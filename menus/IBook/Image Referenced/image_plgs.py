@@ -1,4 +1,4 @@
-from imagepy import IPy
+# from imagepy import IPy
 from imagepy.core.engine import Free
 from scipy.misc import imread
 import os.path as osp
@@ -13,7 +13,7 @@ class Data(Free):
 		img = imread(osp.join(root_dir, self.name))
 		if img.ndim==3 and img.shape[2]==4:
 			img = img[:,:,:3].copy()
-		IPy.show_img([img], self.title)
+		self.app.show_img([img], self.title)
 
 	def __call__(self):
 		return self
@@ -24,6 +24,6 @@ datas = ['Angkor.jpg','qrcode.png','street.jpg','road.jpg','house.jpg',
 'towel-far.jpg','towel-near.jpg','trafficsign.jpg','bee.png','insect.png',
 'game.jpg','gear.png','block.png','distance.png','points.png', 'qin.png', 
 'img.png','pointline.png','marble.png','cell.jpg','rust.jpg', 'rose.jpg',
-'roses.jpg']
+'roses.jpg','rgb.PNG','cmyk.png']
 
 plgs = [Data(i) for i in datas]

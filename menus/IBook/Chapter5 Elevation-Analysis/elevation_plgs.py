@@ -3,7 +3,7 @@ from imagepy.ipyalg import find_maximum, ridge, stair, isoline
 from skimage.morphology import watershed
 import scipy.ndimage as ndimg
 import numpy as np
-from imagepy import IPy
+# from imagepy import IPy
 
 class Ridge(Filter):
     title = 'Riedge Sub'
@@ -41,7 +41,7 @@ class Ridge(Filter):
             sl = img.copy()
             sl[msk] = mark[msk]
             imgs.append(sl)
-        IPy.show_img(imgs, ips.title+'-ridgesub')
+        self.app.show_img(imgs, ips.title+'-ridgesub')
 
 class Watershed(Filter):
     title = 'Watershed Sub'
@@ -81,6 +81,6 @@ class Watershed(Filter):
             sl = img.copy()
             sl[msk] = mark[msk]
             imgs.append(sl)
-        IPy.show_img(imgs, ips.title+'-ridgesub')
+        self.app.show_img(imgs, ips.title+'-ridgesub')
 
 plgs = [Ridge, Watershed]

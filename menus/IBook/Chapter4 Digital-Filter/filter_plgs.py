@@ -1,7 +1,7 @@
 from imagepy.core.engine import Free
 import scipy.ndimage as ndimg
 import numpy as np, wx
-from imagepy import IPy
+# from imagepy import IPy
 #matplotlib.use('WXAgg')
 import matplotlib.pyplot as plt
 
@@ -32,8 +32,8 @@ class Temperature(Free):
 		plt.ylabel('Temperature (C)')
 
 		plt.show()
-		IPy.show_img([block((ys-ys.min())*(180/ys.max()-ys.min()))], 'Temperature')
-		IPy.show_img([block((ds-ds.min())*(180/ds.max()-ds.min()))], 'Difference')
+		self.app.show_img([block((ys-ys.min())*(180/ys.max()-ys.min()))], 'Temperature')
+		self.app.show_img([block((ds-ds.min())*(180/ds.max()-ds.min()))], 'Difference')
 
 class Shake(Free):
 	title = 'Shake Damping'
@@ -53,8 +53,8 @@ class Shake(Free):
 		plt.xlabel('Time')
 		plt.ylabel('Amplitude')
 		plt.show()
-		IPy.show_img([block(ys*10+128)], 'Shake')
-		IPy.show_img([block(ds*10+128)], 'Damping')
+		self.app.show_img([block(ys*10+128)], 'Shake')
+		self.app.show_img([block(ds*10+128)], 'Damping')
 
 class Inertia(Free):
 	title = 'Psychological Inertia'
@@ -74,8 +74,8 @@ class Inertia(Free):
 		plt.xlabel('Time')
 		plt.ylabel('Score')
 		plt.show()
-		IPy.show_img([block((ys-80)*3+80)], 'Psychological')
-		IPy.show_img([block((ds-80)*3+80)], 'Inertia')
+		self.app.show_img([block((ys-80)*3+80)], 'Psychological')
+		self.app.show_img([block((ds-80)*3+80)], 'Inertia')
 
 class GaussCore(Free):
 	title = 'Gaussian Core'
@@ -163,11 +163,11 @@ class LaplaceSharp(Free):
 		ax3.grid()
 		fig.tight_layout()
 		plt.show()
-		IPy.show_img([(((y*70)+128)*np.ones((30,1))).astype(np.uint8)], 'tan(x)')
-		IPy.show_img([((100/(x**2+1))*np.ones((30,1))).astype(np.uint8)], "tan(x)'")
-		IPy.show_img([((((2*x)/(x**4+2*x**2+1)*70)+128)*
+		self.app.show_img([(((y*70)+128)*np.ones((30,1))).astype(np.uint8)], 'tan(x)')
+		self.app.show_img([((100/(x**2+1))*np.ones((30,1))).astype(np.uint8)], "tan(x)'")
+		self.app.show_img([((((2*x)/(x**4+2*x**2+1)*70)+128)*
 			np.ones((30,1))).astype(np.uint8)], "tan(x))''")
-		IPy.show_img([((((y+(2*x)/(x**4+2*x**2+1))*70)+128)*
+		self.app.show_img([((((y+(2*x)/(x**4+2*x**2+1))*70)+128)*
 			np.ones((30,1))).astype(np.uint8)], "tan(x)+tan(x)''")
 
 class UnSharp(Free):
@@ -198,9 +198,9 @@ class UnSharp(Free):
 		ax3.grid()
 		fig.tight_layout()
 		plt.show()
-		IPy.show_img([((y*70+128)*np.ones((30,1))).astype(np.uint8)], 'tan(x)')
-		IPy.show_img([((gy*70+128)*np.ones((30,1))).astype(np.uint8)], 'gaussian')
-		IPy.show_img([(((y-gy)*100+128)*np.ones((30,1))).astype(np.uint8)], 'arctan(x) - gaussian')
-		IPy.show_img([(((y+2*(y-gy))*70+128)*np.ones((30,1))).astype(np.uint8)], "arctan(x) + diff")
+		self.app.show_img([((y*70+128)*np.ones((30,1))).astype(np.uint8)], 'tan(x)')
+		self.app.show_img([((gy*70+128)*np.ones((30,1))).astype(np.uint8)], 'gaussian')
+		self.app.show_img([(((y-gy)*100+128)*np.ones((30,1))).astype(np.uint8)], 'arctan(x) - gaussian')
+		self.app.show_img([(((y+2*(y-gy))*70+128)*np.ones((30,1))).astype(np.uint8)], "arctan(x) + diff")
 
 plgs = [Temperature, Shake, Inertia, GaussCore, LoGCore, DogCore, LaplaceSharp, UnSharp]

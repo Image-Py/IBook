@@ -5,7 +5,7 @@ Distance Transform>None
 Multiply>{'num': 5.0}
 distance>None
 Medial Axis>{'dis': False}
-Image Calculator>{'img1': 'distance-2', 'op': 'max', 'img2': 'distance-1'}
+Image Calculator>{'op': 'max', 'img': 'distance-1'}
 distance>None
 Medial Axis>{'dis': False}
-Image Calculator>{'img1': 'distance-3', 'op': 'max', 'img2': 'distance'}
+Image Calculator>{'op': 'max', 'img': 'distance'}
