@@ -1,5 +1,5 @@
 # from imagepy import IPy
-from imagepy.core.engine import Free
+from sciapp.action import Free
 from scipy.misc import imread
 import os.path as osp
 

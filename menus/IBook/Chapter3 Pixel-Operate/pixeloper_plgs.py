@@ -1,4 +1,4 @@
-from imagepy.core.engine import Free
+from sciapp.action import Free
 import numpy as np
 # from imagepy import IPy
 import wx

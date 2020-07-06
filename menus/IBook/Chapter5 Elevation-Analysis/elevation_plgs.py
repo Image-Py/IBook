@@ -1,4 +1,4 @@
-from imagepy.core.engine import Filter
+from sciapp.action import Filter
 from imagepy.ipyalg import find_maximum, ridge, stair, isoline
 from skimage.morphology import watershed
 import scipy.ndimage as ndimg
