@@ -1,6 +1,6 @@
 # from imagepy import IPy
 from sciapp.action import Free
-from scipy.misc import imread
+from skimage.io import imread
 import os.path as osp
 
 class Data(Free):

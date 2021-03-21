@@ -1,6 +1,6 @@
 # IBook
 
-**Path:** https://github.com/Image-Py/IBook
+**Path:** https://gitee.com/imagepy/IBook
 
 **Version:** 0.1
 
